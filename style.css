@@ -1,0 +1,105 @@
+:root {
+    font-family: 'Julius Sans One', sans-serif;
+    text-align: center;
+    --cavern: #241e2f;
+    overflow-x: hidden;
+    background-color: var(--cavern);
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Starting Image */
+
+#outer-space {
+    order: 3;
+    background-repeat: no-repeat;
+    max-width: 100vw;
+    max-height: 1920px;
+    background-size: cover;
+    opacity: 85%;
+    box-shadow: 10px 5px 6px 0px black;
+}
+
+#container {
+    background: red;
+}
+
+#content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% ) scale( 2.5 );
+    background-color: rgba( 0, 0, 0, 0.75 );
+    color: ghostwhite;
+    box-shadow: 3px 3px 3px 0 black;
+    padding: 15px;
+}
+
+#arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, 300px ) scale( 2.75 );
+    background-color: rgba( 0, 0, 0, 0.75 );
+    fill: invert(1);
+}
+
+/* Dropdown Menu */
+
+#link-contain {
+    background-color: rgb(59, 53, 71);
+    box-shadow: 5px 5px 5px 0 black;
+    margin-top: 15px;
+    max-height: 125px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    min-height: 75px;
+}
+
+li {
+    display: inline;
+    font-size: 25px;
+}
+
+li a {
+    text-align: center;
+    padding: 25px 35px 25px 35px;
+    overflow-y: hidden;
+    color: ghostwhite;
+    text-decoration: none;
+    float: left;
+    border-right: 3px solid black;
+}
+
+li a:hover {
+    animation-name: grad-in;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+@keyframes grad-in {
+    50% {
+        color: aquamarine;
+    }
+
+    100% {
+        color: aquamarine;
+        background-color: #4e465e;
+    }
+}
+
+#pro-contain {
+    background-color: white;
+    color: red;
+}

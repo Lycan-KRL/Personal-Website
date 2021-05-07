@@ -1,0 +1,167 @@
+<!--
+
+    - You can change up colors through the 'style' attribute
+        * Ex: <h2 style="color: blue;"> </h2>
+        * This is method 1 in using actual CSS code for styling
+    - Method 2: Using style blocks to describe color for all instances of something
+        <style>
+            h2 {
+                color: red;
+                // This will turn all h2 instances to blue text
+            }
+        </style>
+    - Wanting to apply a certain style into different things? CSS classes work
+        <style>
+            .blue-text {
+                color: blue;
+                // CSS Class names must start with a period
+            }
+        </style>
+        
+        // But HTML need not include the punctuation
+        <h2 class="blue-text"> </h2>
+
+        * Remember, these are classes, just like C++. You can apply these
+        settings to anything else that can accept them.
+
+        <p class="blue-text"> I'm blue now! </p>
+    
+    - CSS controls font size and family, too
+        * This is how you import a font from an external source :)
+        <link href="https://fonts.googleapis.com/css?family=Lobster" 
+            rel="stylesheet" type="text/css">
+        <link href=(URL to font) rel="stylesheet" type="text/css">
+
+        * In the case that a font isn't found, you can ask HTML
+        to degrade to another font
+            - 3 default ones exist: serif, sans-serif, and monospace
+
+        <style>
+            p {
+                // Every <p> will be set to 16px
+                font-size: 16px;
+                font-family: Lobster, monospace;
+            }
+
+            h1 {
+                // Every <h1> will be set to sans-serif
+                font-family: sans-serif
+            }
+        </style>
+    
+    - CSS allows you to screw with the width and height of images and add borders
+        * BTW, appending multiple classes is simple: <img class="class1 class2"> by 1 space
+
+        <style>
+            .larger-image {
+                width: 500px;
+            }
+
+            .smaller-image {
+                width: 250px;
+            }
+
+            .thicc-border {
+                border-color: red;
+                border-style: solid; // 'solid' = opaque color
+                border-width: 10px; // How wide of a border
+                // Know that percentages could also be used for the radius
+                border-radius: 10px; // This will round out corners
+            }
+        </style>
+    
+    - In HTML, it's very important that every element has their own UNIQUE id's.
+    CSS can specify styles for chosen ID's.
+        <style>
+            #reference-id {
+                // Padding describes how far the text is from the horizontal borders
+                padding = 20px;
+                // You can specifiy the padding for each of the four sides
+                padding-top = 14px;
+                // Margin describes how from the text is from the verticle borders
+                // A negative margin increases the size of the element
+                margin = 20px;
+                // Same thing here, you can change the margin sides
+                margin-left = 40px;
+            }
+
+            .clockwise {
+                // Easier way to specify is by clockwise-notation: top, right, bottom, left
+                margin: 10px 20px 10px 20px;
+            }
+
+            // You can reference elements of the same value for the same attribute
+            [attribute=value]
+            [type="checkbox"] {
+                margin: 20px 20px 20px 20px;
+            }
+        </style>
+
+    - There exists a whole ass body element of an entire page called <body>
+        <style>
+            body {
+                // The entire page background will be black
+                background-color: #000000;
+
+                * Hexadecimal works just as fine for color selection
+                * rgb(0,0,0) does the same thing
+
+                // All text will be green and monospace
+                // This is INHERITANCE at work!
+                color: green;
+                font-family: monospace;
+            }
+
+            // Any custom class will override the 'body' element
+            .override {
+                color: red;
+
+                // if I did - - - color: red !important;
+                // This takes priority over everything else
+            }
+
+            // This also changes the color, but HTML will prioritize this one
+            // Style is applied top to bottom
+            .override-again {
+                color: blue;
+            }
+
+            // Despite it not being last, id attribute references take precedence
+            #other-ref {
+                color: brown;
+            }
+        </style>
+
+        - body -> .class -> #id reference -> style="inline CSS" -> !important
+
+        <h1>Header</h1> // This will be green and monospace font
+        <h2 class="override">Nice</h2> // This will be red and monospace
+        <h3 class="override override-again">Wow</h3> // This will be blue and monospace
+        <h3 style="color: white;" class="override override-again">I See</h3> // This will be white and monospace
+
+    - CSS variables are a thing now
+        <style>
+            :root {
+                // Think of these as global class variables
+                // They are NOT static, they can be changed later
+                --belly: pink;
+            }
+
+            .penguin {
+                --belly: white; // Look, it's overriden
+                --skin: silver;
+
+                .head {
+                    // This is how you reference a variable
+                    // The 'black' is a fallback in case the variable is fucked
+                    background: var( --skin, black );
+                }
+
+                .beak {
+                    background-color: var( --belly, pink );
+                }
+            }
+        </style>
+
+
+-->

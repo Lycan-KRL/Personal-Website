@@ -1,0 +1,272 @@
+- You can align text using the same four options from Microsoft Word:
+    1. Justified
+    2. Center
+    3. Left
+    4. Right
+
+- You can change up the weight of the text, such as bolding it ( via "font-weight" )
+    * "font-weight" only takes numbers, no need for "px"
+    * You can inline the command by using <strong></strong> tags wrapped
+    around some text
+    * Underlining can be done via <u></u>
+    * Italicizing is done via <em></em>
+    * Striking text is done via <s></s>
+
+- You can add box shadows to further emphasize a section or card using "box-shadow"
+    * It is capable of 5 possible values for the shadow, 2 of which (blur & spread) are optional
+
+- You can screw with the opacity of things directly via "opacity"
+- Via "text-transform," you have several options in the casing of text
+    * uppercase
+    * lowercase
+    * initial (Only the first letter is capital)
+    * capitalize (Every first letter of a word is capital)
+    * inherit (Use the current value of a parent element)
+    * none (This is the default. The original text is used as is)
+
+- If you want to change the spacing of text, use the "line-height" property
+
+- PSEUDO-CLASSES can specify states of an element
+    * EX: If I hover over a link and I want it to become blue, I need to change the "a:hover"
+    pseudo-class to make this change
+
+- You can use "position: relative" to describe the placement of an element relative
+to where it would normally be. Separate elements are independent of these changes
+    * You can change: top, bottom, left, right
+    * The element moves opposite to the specified direction (using "top" moves it down)
+
+- In the case of "position: absolute," the element moves in respect to a parent element
+or the webpage. It's offsets depend upon a parent element
+    * There also exists "position: fixed" to say that the element doesn't move when 
+    the user scrolls
+
+- When it comes to elements overlapping each other, you need to mess with their "z-index"
+    * Think of this like the Geometry Dash editor, messing with their "z index" says
+    who shows up on top
+    * HTML reads top to bottom, so anything coming later will show up on top
+
+- Using a margin value of "auto" can horizontally center an element
+
+    .one {
+        // The element moves relative to itself
+        position: relative;
+    }
+
+    .two {
+        // The element move relative to its parent element
+        // Otherwise, it's relative to the webpage
+        position: absolute;
+    }
+
+    <div class="one">
+        // This div is absolute in position, meaning any offsets are from
+        // the parent <div> and NOT itself
+        <div class="two"></div>
+    </div>
+
+    a:hover {
+        color: blue;
+        position: relative;
+        top: 20px;
+    }
+
+    .text {
+        text-align: center;
+        font-weight: bold; // Bolds text
+        font-style: italic // Italicizes text
+        text-decoration: underline; // underlines text
+        text-decoration: line-through // strikethrough
+
+        line-height: 25px; // Gives larger spacing between lines
+    }
+
+    h4 {
+        text-transform: uppercase;
+        text-decoration: underline;
+        color: rgba( 45, 45, 45, 0.5 );
+    }
+
+    .card {
+        // ORDER: offset-x, offset-y, blur-radius, spread-radius, color
+        box-shadow: 14px 48px 8px - rgba( r, g, b, opacity );
+    }
+
+    .opacity {
+        rgba( 25, 25, 25, 0.1 );
+        // Opacity runs from 0 to 1
+    }
+
+    <html>
+
+        <h4 style="opacity: 0.7;"> Header Text </h4>
+        <hr> // Adds a literal horizontal line
+
+
+    </html>
+
+= = = = = = = = = = = = = = = = = = = = =
+COLOR THEORY
+= = = = = = = = = = = = = = = = = = = = =
+- Computers like using RGB additive mixtures to achieve color
+
+- Complimentary colors are good like red and cyan or blue and yellow
+- Split-complimentary means cyan and the two colors that are near read (orange and magenta)
+
+- Colors have 3 properties: hue, saturation, and lightness
+    * Use the hsl() function to help describe a color based on the properties
+    * You can create gradients using linear-gradient()
+        - Parameters: direction (0 - 360deg), color1, color2, color3 . . .
+    * You can repeat gradients using the repeating-linear-gradient() method
+        - Parameters: direction, color1, color1 stop, color2, color2 stop
+        Ex:
+        <style>
+            div {
+                repeating-linear-gradient( 
+                    45deg,
+                    yellow 0px,
+                    red 40px,
+                    black 40px,
+                    blue 80px
+                );
+            }
+
+            body {
+                // You can attach an image to produce a bit of texture
+                background: url( URL );
+            }
+        </style
+
+    * Hue = Where a color fits on the color wheel (this is what we normally think of with color)
+        - Since wheels are circles, the values are in degrees from 0 - 360
+    * Saturation = The amount of grey in the color (a saturated color has little to no grey)
+        - Percentages from 0 - 100% (More means less grey)
+    * Lightness = The amount of white/black in the color (0% black 50% normal 100% white)
+        - Percentages from 0 - 100%
+
+- Mixing white with a color creates tints
+- Mixing black with a color creates shades
+- Mixing grey or white+black creates tones
+
+- If you want to scale something, you will access this ability through the "transform" property
+- You can stretch something x/y by using the skewX()/skewY() function
+    * For some reason, the parameters take degrees
+    #ball2 {
+        // Will scale the element by an addition 50%
+        transform: scale( 1.5 );
+        transforma: skewX( 23deg );
+    }
+
+- "transparent" is a color apparently
+- For complex shapes, you'll need clever combinations of shadows, boxes, and colors
+
+= = = = = = = = = = = = = = = =
+ANIMATIONS
+= = = = = = = = = = = = = = = = 
+- So I suppose CSS can just do animations for you, like wow okay that's nice
+- Any animation to be used must have a unique name to it without quotations
+- You can support an infinite loop by doing: animation-iteration-count: infinite;
+
+    <style>
+        #unique-id {
+            animation-name: Ahmenadielio;
+            animation-duration: 4s;
+
+            // Doing this will keep the style of the animation even after it stops
+            animation-fill-mode: forwards;
+
+            animation-iteration-count: infinite;
+
+            // Also like the GD editor, you can mess with the rate at which something happens
+            // You can do: ease (default), ease-in, ease-out, linear
+            animation-timing-function: ease-out;
+
+            // Bezier curves give even greater control over animation speed
+            // Imagine a 1x1 grid where four points exist: p0 & p3 are defined for you (0,0) and (1,1)
+            // You define p1 and p2 as per the parameters
+            // X-axis represents the animation duration
+            // Y-axis represents the animation progression
+            // ease-out first prioritizes animation pogression until it reverses
+            // x can only be from 0 - 1, but y can go beyond 1
+            animation-timing-function: cubic-bezier( x1, y1, x2, y2 );
+        }
+
+        // You need the keyword "@keyframes" to tell CSS to animate something
+        @keyframes Ahmenadielio {
+            // You can describe the behavior of the animation at any step from 0 - 100%
+            // of the animation duration previously declared
+            0% {
+                background-color: blue;
+                // Use positional offsets to create movement!
+                top: 0px;
+            }
+
+            35% {
+                background-color: red;
+                top: 30px;
+            }
+        }
+    </style>
+
+- There should only be ONE <h1> tag per page
+    * Make sure to directly follow -- IN ORDER -- the header numbers (1, 2, 3, 4...)
+
+- The <main> tag is meant once per page where it contains the main information for the page
+
+- To know when to use <article> <section> <div>
+    * <div> - groups generally unrelated content together
+    * <section> - groups related content
+    * <article> - groups independent, self-contained content
+        - AKA if the stuff makes sense by itself, then use this tag
+    * <header> - Different from <head>, wraps introductory information or navigation links
+    * <nav> - meant to wrap around the MAIN navigation links of the page
+    * <footer> - contain copyright information or links to related documents
+    * <fieldset> - Works to contain a set of related inputs
+        - It also involves a <legend> which is read by screen readers to specify 
+        what the choices means/are
+
+- To add audio clips, you are in need of an <audio> tag that encapsulates the audio source
+    <audio controls> // 'controls' allows: play, pause, volume, download, fast-forwarding, etc.
+        <source src=URL.mp3 type="audio/mpeg">
+        <source src=URL.ogg type="audio/ogg">
+    </audio>
+
+- HTML5 introduces the <figure> and <figcaption> tags for grouping images and respective captions
+    <figure> // Begin figure encapsulation
+        <img src=URL alt=""> // Image
+        <br> // Line break
+        <figcaption> // Caption goes here
+        </figcaption>
+    </figure>
+
+- Reminder on forms:
+    * Input types:
+        - "radio" = circular button
+        - "checkbox" = square checkbox
+        - "submit" = submission button
+        - "date" (HTML5) = brings up calendar to pick a date
+
+    <form>
+        <fieldset>
+            <label for="box">Type here</label>
+            <input type="text" id="box" required>
+        </fieldset>
+    </form>
+
+- <sup></sup> does the superscript thing (Like the 'th' in dates)
+
+- When it comes to putting in times, dates, and shit, it becomes semantically nice
+to screen readers to standardize it via the <time></time> tag
+    * This is useful in case the webpage author write the date retardedly   
+    <p>
+        Today's date is <time datetime="2020-10-31">October 31st, 2020</time>. It's spooky time.
+    </p>
+
+- Colorblind people are a thing, so for the sake of their viewing pleasures
+go with contrasting color values for maximum readability
+- The color contrast is recommended to be 4.5:1
+- Keyboard-only users are also a thing, so HTML includes the "accesskey" attribute
+    * This is useful for interactive elements like buttons, links, and form controls
+    <h2>
+        // All that's needed to use this link is pressing "g"
+        <a accesskey="g" href="#">Night</a>
+    </h2>

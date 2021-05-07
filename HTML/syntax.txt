@@ -1,0 +1,85 @@
+<style>
+    h1 {
+        background-color:lightblue;
+        font-family: monospace;
+    }
+
+    .larger-text {
+        font-size: 20px;
+    }
+
+    #nice {
+        color: blue;
+    }
+</style>
+
+<h1> This is a heading. </h1>
+    <h2> Therer are several other sub-headings up to 'h6' </h2>
+        <p id="nice"> Paragraphs are done using these commands </p>
+
+<!-- Comments are done a little oddly, but I don't mind -->
+<main> 
+
+    <!-- It's simple to add images using 'img' with an internal caption 'alt' -->
+    <!-- <img src = "URL" alt = "A caption goes here"> -->
+    <!-- 
+        Adding hyperlinks is simple, too! The Anchor Text is like a replacement
+        for the url
+        <a href = "URL"> This anchor test need not be in quotes</a>
+
+        - The things that look like variables (i.e. href, alt, src) are called "Attributes"
+        - Editing attributes is done within the first < > tags
+            * <footer id = value> Footer Text </footer>
+        - target = "_blank" opens up a new tab when using hyperlinks
+        - If you don't know where your href will go to, you can add a dead link
+        using the '#' symbol as the URL
+        - You can nest things and create images that are hyperlinks
+            * <a href = "#"> 
+                <img src = URL alt = Text>
+              </a>
+
+        - So unordered lists <ul> and <ol> create bullet-point styled lists
+            * Use <li> </li> for each item
+            * li = list item
+            * ul = unordered list
+            * ol = ordered list
+
+        - For specified types of inputs
+            * radio for circles
+            * checkbox for -- well -- checkboxes
+
+        - If you want people to type shit in, you need an <input> element
+            * <input type = "text">
+            * put in the "required" flag to make the input un-skippable
+            * If you want some text to already be within the input box,
+              use the placeholder="text" attribute
+
+        - <form> can submit webform data to servers
+            * Nest an <input> if you'd like to type in the form
+        
+        - <button type="submit"> will create a neat little button to click on
+        - Line breaks in HTML are: <br>
+        - To create markable inputs, the input type is "radio"
+
+        - Form submissions send the "value" attribute over to the server
+            * The default is "on," but this is largely inspecific and useless
+            * Custom values are denoted by "value=stuff"
+        - To leave radio/checked buttons on by default, use the keyword "checked"
+        at the end of the tag
+
+        - Labels accompany only ONE <input> element
+            * It's good practice to match their <label for="name"> with the name
+            of the input
+
+        - <div> </div> are general purpose dividers to split messy ass code up
+            * You can think of them like namespaces without the specificity
+            * <head> and <body> are other containers
+                - <head> takes markup about the page: links, title, meta, style, etc.
+                - <body> takes stuff about the content: <p> <a> 
+
+        - <!DOCTYPE html> must start the file
+        - All html code is to go into <html> </html> tags
+
+
+     -->
+</main>
